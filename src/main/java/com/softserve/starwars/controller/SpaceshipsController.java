@@ -9,9 +9,4 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "categories/spaceships")
 public class SpaceshipsController {
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String spaceshipsPage(Model model) {
-
-        return "spaceships";
-    }
 }

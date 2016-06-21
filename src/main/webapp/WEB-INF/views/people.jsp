@@ -5,61 +5,196 @@
 
 <link href=<c:url value="/resources/dist/css/select2.min.css" /> rel="stylesheet" />
 <link href=<c:url value="/resources/dist/css/select2-bootstrap.css" /> rel="stylesheet" />
-<link href=<c:url value="/resources/bower_components/bootstrap-dataTables/css/dataTables.bootstrap.min.css" />
-              rel="stylesheet" />
+<link href=<c:url value="/resources/dist/css/result.css" /> rel="stylesheet" />
 
-<div class="row">
-  <div class="col-md-12">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3>People Results</h3>
-      </div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Request results for person with ID: <c:out value="${peopleObject.id}" /></h3>
+  </div>
+  <div class="panel-body">
 
-      <div class="panel-body">
-        <div class="table-responsive">
-          <table class="table table-hover table-bordered table-striped" id="results">
-            <thead>
-            <tr>
-              <th><input id="selectAll" type="checkbox" title="Select all"></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-            </tr>
-            </thead>
-
-            <!--<tbody>
-            <c:forEach items="${list}" var="result" varStatus="status">
-              <tr class="dataRow">
-                <td class="td-centered"><input id="${result.id}" type="checkbox" name="operateSelect" /></td>
-                <td><c:out value="${result.requestName}" /></td>
-                <td><c:out value="${result.requestDescription}" /></td>
-                <td><c:out value="${result.application.name}" /></td>
-                <td><c:out value="${result.service.name}" /></td>
-                <td class="td-centered">${result.timeStart}</td>
-                <td class="td-centered">${(result.status==true)?'pass':'fail'}</td>
-                <td><c:out value="${result.message}" /></td>
-                <td class="td-centered"><a href=<c:url value="/results/requests/${result.id}" />>details</a></td>
-                <td class="td-centered">
-                  <a class="removeInstance cursorPointer fa fa-trash fa-lg"
-                     href="<c:url value="/results/requests/remove/${result.id}" />" ></a>
-                </td>
-              </tr>
-            </c:forEach>
-            </tbody>-->
-          </table>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Name</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${peopleObject.name}" />
         </div>
       </div>
     </div>
-    <button id ="deleteSelected" class="btn btn-default">Delete Selected</button>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Height</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${peopleObject.height}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Mass</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${peopleObject.mass}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Hair color</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${peopleObject.hair_color}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Skin color</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${peopleObject.skin_color}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Eye color</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${peopleObject.eye_color}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Birth year</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${peopleObject.birth_year}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Gender</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${peopleObject.gender}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Homeworld</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${peopleObject.homeworld}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Films</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:forEach items="${peopleObject.films}" var="film">
+            <span class='label label-info'/>${film}</span>
+          </c:forEach>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Species</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:forEach items="${peopleObject.species}" var="specie">
+            <span class='label label-info'/>${specie}</span>
+          </c:forEach>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Vehicles</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:forEach items="${peopleObject.vehicles}" var="vehicle">
+            <span class='label label-info'/>${vehicle}</span>
+          </c:forEach>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Starships</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:forEach items="${peopleObject.starships}" var="starship">
+            <span class='label label-info'/>${starship}</span>
+          </c:forEach>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Created</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${peopleObject.created}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Edited</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${peopleObject.edited}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>URL</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${peopleObject.url}" />
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
-<script src=<c:url value="/resources/dist/js/select2.min.js" />></script>
-<script src=<c:url value="/resources/bower_components/bootstrap-dataTables/js/jquery.dataTables.min.js" />></script>
-<script src=<c:url value="/resources/bower_components/bootstrap-dataTables/js/dataTables.bootstrap.min.js" />></script>

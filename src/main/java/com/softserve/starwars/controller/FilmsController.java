@@ -16,9 +16,4 @@ import java.util.List;
 @RequestMapping(value = "categories/films")
 public class FilmsController {
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String filmsPage(Model model) {
-
-        return "films";
-    }
 }

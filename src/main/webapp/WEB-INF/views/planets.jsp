@@ -5,61 +5,170 @@
 
 <link href=<c:url value="/resources/dist/css/select2.min.css" /> rel="stylesheet" />
 <link href=<c:url value="/resources/dist/css/select2-bootstrap.css" /> rel="stylesheet" />
-<link href=<c:url value="/resources/bower_components/bootstrap-dataTables/css/dataTables.bootstrap.min.css" />
-              rel="stylesheet" />
+<link href=<c:url value="/resources/dist/css/result.css" /> rel="stylesheet" />
 
-<div class="row">
-  <div class="col-md-12">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3>Planet Results</h3>
-      </div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Request results for planet with ID: <c:out value="${planetObject.id}" /></h3>
+  </div>
+  <div class="panel-body">
 
-      <div class="panel-body">
-        <div class="table-responsive">
-          <table class="table table-hover table-bordered table-striped" id="results">
-            <thead>
-            <tr>
-              <th><input id="selectAll" type="checkbox" title="Select all"></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-            </tr>
-            </thead>
-
-            <!--<tbody>
-            <c:forEach items="${list}" var="result" varStatus="status">
-              <tr class="dataRow">
-                <td class="td-centered"><input id="${result.id}" type="checkbox" name="operateSelect" /></td>
-                <td><c:out value="${result.requestName}" /></td>
-                <td><c:out value="${result.requestDescription}" /></td>
-                <td><c:out value="${result.application.name}" /></td>
-                <td><c:out value="${result.service.name}" /></td>
-                <td class="td-centered">${result.timeStart}</td>
-                <td class="td-centered">${(result.status==true)?'pass':'fail'}</td>
-                <td><c:out value="${result.message}" /></td>
-                <td class="td-centered"><a href=<c:url value="/results/requests/${result.id}" />>details</a></td>
-                <td class="td-centered">
-                  <a class="removeInstance cursorPointer fa fa-trash fa-lg"
-                     href="<c:url value="/results/requests/remove/${result.id}" />" ></a>
-                </td>
-              </tr>
-            </c:forEach>
-            </tbody>-->
-          </table>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Name</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${planetObject.name}" />
         </div>
       </div>
     </div>
-    <button id ="deleteSelected" class="btn btn-default">Delete Selected</button>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Rotation period</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${planetObject.rotation_period}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Orbital period</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${planetObject.orbital_period}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Diameter</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${planetObject.diameter}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Climate</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${planetObject.climate}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Gravity</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${planetObject.gravity}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Terrain</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${planetObject.terrain}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Surface water</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${planetObject.surface_water}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Population water</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${planetObject.population}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Resident</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:forEach items="${planetObject.residents}" var="resident">
+            <span class='label label-info'/>${resident}</span>
+          </c:forEach>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Films</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:forEach items="${planetObject.films}" var="film">
+            <span class='label label-info'/>${film}</span>
+          </c:forEach>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Created</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${planetObject.created}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>Edited</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${planetObject.edited}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><b>URL</b></p>
+        </div>
+        <div class="col-sm-9">
+          <c:out value="${planetObject.url}" />
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
-<script src=<c:url value="/resources/dist/js/select2.min.js" />></script>
-<script src=<c:url value="/resources/bower_components/bootstrap-dataTables/js/jquery.dataTables.min.js" />></script>
-<script src=<c:url value="/resources/bower_components/bootstrap-dataTables/js/dataTables.bootstrap.min.js" />></script>

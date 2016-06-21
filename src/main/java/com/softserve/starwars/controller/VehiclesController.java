@@ -9,9 +9,4 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "categories/vehicles")
 public class VehiclesController {
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String vehiclesPage(Model model) {
-
-        return "vehicles";
-    }
 }
