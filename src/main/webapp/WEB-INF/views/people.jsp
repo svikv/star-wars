@@ -9,7 +9,7 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3>Request results for person with ID: <c:out value="${peopleObject.id}" /></h3>
+    <h3>Request results for person with ID: <c:out value="${id}" /></h3>
   </div>
   <div class="panel-body">
 
@@ -19,7 +19,7 @@
           <p><b>Name</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${peopleObject.name}" />
+          <c:out value="${people.name}" />
         </div>
       </div>
     </div>
@@ -30,7 +30,7 @@
           <p><b>Height</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${peopleObject.height}" />
+          <c:out value="${people.height}" />
         </div>
       </div>
     </div>
@@ -41,7 +41,7 @@
           <p><b>Mass</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${peopleObject.mass}" />
+          <c:out value="${people.mass}" />
         </div>
       </div>
     </div>
@@ -52,7 +52,7 @@
           <p><b>Hair color</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${peopleObject.hair_color}" />
+          <c:out value="${people.hair_color}" />
         </div>
       </div>
     </div>
@@ -63,7 +63,7 @@
           <p><b>Skin color</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${peopleObject.skin_color}" />
+          <c:out value="${people.skin_color}" />
         </div>
       </div>
     </div>
@@ -74,7 +74,7 @@
           <p><b>Eye color</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${peopleObject.eye_color}" />
+          <c:out value="${people.eye_color}" />
         </div>
       </div>
     </div>
@@ -85,7 +85,7 @@
           <p><b>Birth year</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${peopleObject.birth_year}" />
+          <c:out value="${people.birth_year}" />
         </div>
       </div>
     </div>
@@ -96,7 +96,7 @@
           <p><b>Gender</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${peopleObject.gender}" />
+          <c:out value="${people.gender}" />
         </div>
       </div>
     </div>
@@ -107,7 +107,7 @@
           <p><b>Homeworld</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${peopleObject.homeworld}" />
+          <c:out value="${people.homeworld}" />
         </div>
       </div>
     </div>
@@ -118,7 +118,7 @@
           <p><b>Films</b></p>
         </div>
         <div class="col-sm-9">
-          <c:forEach items="${peopleObject.films}" var="film">
+          <c:forEach items="${people.films}" var="film">
             <span class='label label-info'/>${film}</span>
           </c:forEach>
         </div>
@@ -131,7 +131,7 @@
           <p><b>Species</b></p>
         </div>
         <div class="col-sm-9">
-          <c:forEach items="${peopleObject.species}" var="specie">
+          <c:forEach items="${people.species}" var="specie">
             <span class='label label-info'/>${specie}</span>
           </c:forEach>
         </div>
@@ -144,7 +144,7 @@
           <p><b>Vehicles</b></p>
         </div>
         <div class="col-sm-9">
-          <c:forEach items="${peopleObject.vehicles}" var="vehicle">
+          <c:forEach items="${people.vehicles}" var="vehicle">
             <span class='label label-info'/>${vehicle}</span>
           </c:forEach>
         </div>
@@ -157,7 +157,7 @@
           <p><b>Starships</b></p>
         </div>
         <div class="col-sm-9">
-          <c:forEach items="${peopleObject.starships}" var="starship">
+          <c:forEach items="${people.starships}" var="starship">
             <span class='label label-info'/>${starship}</span>
           </c:forEach>
         </div>
@@ -170,7 +170,7 @@
           <p><b>Created</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${peopleObject.created}" />
+          <c:out value="${people.created}" />
         </div>
       </div>
     </div>
@@ -181,7 +181,7 @@
           <p><b>Edited</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${peopleObject.edited}" />
+          <c:out value="${people.edited}" />
         </div>
       </div>
     </div>
@@ -192,7 +192,7 @@
           <p><b>URL</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${peopleObject.url}" />
+          <c:out value="${people.url}" />
         </div>
       </div>
     </div>

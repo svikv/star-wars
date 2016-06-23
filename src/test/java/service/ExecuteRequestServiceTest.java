@@ -1,15 +1,24 @@
 package service;
 
 import com.softserve.starwars.Service.ExecuteRequestService;
+import com.softserve.starwars.Service.GenerateRandomIdService;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.junit.Assert.assertEquals;
 
+@ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/root-context.xml" })
+@RunWith(SpringJUnit4ClassRunner.class)
 public class ExecuteRequestServiceTest {
 
     @Autowired
     private ExecuteRequestService executeRequestService;
+
+    @Autowired
+    private GenerateRandomIdService generateRandomIdService;
 
     @Test
     public void executeRequestTest() {
@@ -48,8 +57,11 @@ public class ExecuteRequestServiceTest {
                 "\t\"url\": \"http://swapi.co/api/planets/1/\"\n" +
                 "}";
 
-        String responseResult = executeRequestService.executeRequest("http://swapi.co/api/planets/1/");
+        String responseResult = "";
+        responseResult = executeRequestService.executeRequest("http://swapi.co/api/planets/1/");
         System.out.println(responseResult);
         assertEquals(responseExpected, responseResult);
     }
 }
+
+

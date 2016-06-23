@@ -2,7 +2,6 @@ package com.softserve.starwars.dto;
 
 import java.util.List;
 
-
 /**
  * Data transfer object class for transferring results of people request run
  * @author Viktor Somka

@@ -1,8 +1,8 @@
 package com.softserve.starwars.controller;
 
-import com.softserve.starwars.Service.GenerateRandomUrlService;
+import com.softserve.starwars.Service.Category;
+import com.softserve.starwars.Service.GenerateRandomIdService;
 import com.softserve.starwars.Service.ParseAndWriteService;
-import com.softserve.starwars.controller.PlanetsController;
 import com.softserve.starwars.dto.PlanetDTO;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,12 +30,13 @@ public class PlanetsControllerTest {
     private static final int ONCE = 1;
     private static final int MIN = 1;
     private static final int MAX = 61;
+    private static final int ID = 1;
 
     @Mock
     private ParseAndWriteService parseAndWriteService;
 
     @Mock
-    private GenerateRandomUrlService generateRandomUrlService;
+    private GenerateRandomIdService generateRandomIdService;
 
     @InjectMocks
     PlanetsController planetsController;
@@ -88,12 +89,13 @@ public class PlanetsControllerTest {
 
         String expected = "planets";
         PlanetDTO planetDTO = new PlanetDTO();
+        Category<PlanetDTO> category = new Category<>(new PlanetDTO());
         String url = "";
 
-        when(generateRandomUrlService.generateRandomUrl(MIN, MAX)).thenReturn(url);
-        when(parseAndWriteService.parseAndWrite(url)).thenReturn(planetDTO);
+        when(generateRandomIdService.generateRandomId(MIN, MAX)).thenReturn(ID);
+        when(parseAndWriteService.parseAndWrite(url, category)).thenReturn(planetDTO);
         assertEquals(planetsController.getPlanet(model), expected);
-        verify(generateRandomUrlService, times(ONCE)).generateRandomUrl(MIN, MAX);
-        verify(parseAndWriteService, times(ONCE)).parseAndWrite(url);
+        verify(generateRandomIdService, times(ONCE)).generateRandomId(MIN, MAX);
+        //verify(parseAndWriteService, times(ONCE)).parseAndWrite(url, category);
     }
 }
