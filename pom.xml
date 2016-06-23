@@ -23,22 +23,9 @@
     <junit-version>4.12</junit-version>
     <mockito-version>1.10.19</mockito-version>
     <commons-lang3-version>3.4</commons-lang3-version>
-    <validation-api-version>1.1.0.Final</validation-api-version>
     <hibernate-validator-version>5.2.3.Final</hibernate-validator-version>
   </properties>
   <dependencies>
-
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <version>1.7.12</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <version>1.7.12</version>
-    </dependency>
 
     <!-- Hibernate -->
 
@@ -207,12 +194,6 @@
     </dependency>
 
     <dependency>
-      <groupId>javax.validation</groupId>
-      <artifactId>validation-api</artifactId>
-      <version>${validation-api-version}</version>
-    </dependency>
-
-    <dependency>
       <groupId>commons-collections</groupId>
       <artifactId>commons-collections</artifactId>
       <version>3.2.2</version>
@@ -228,6 +209,11 @@
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
       <version>2.6.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.5.2</version>
     </dependency>
   </dependencies>
 

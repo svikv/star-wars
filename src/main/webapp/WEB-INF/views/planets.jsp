@@ -9,7 +9,7 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3>Request results for planet with ID: <c:out value="${planetObject.id}" /></h3>
+    <h3>Request results for planet with ID: <c:out value="${id}" /></h3>
   </div>
   <div class="panel-body">
 
@@ -19,7 +19,7 @@
           <p><b>Name</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${planetObject.name}" />
+          <c:out value="${planet.name}" />
         </div>
       </div>
     </div>
@@ -30,7 +30,7 @@
           <p><b>Rotation period</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${planetObject.rotation_period}" />
+          <c:out value="${planet.rotation_period}" />
         </div>
       </div>
     </div>
@@ -41,7 +41,7 @@
           <p><b>Orbital period</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${planetObject.orbital_period}" />
+          <c:out value="${planet.orbital_period}" />
         </div>
       </div>
     </div>
@@ -52,7 +52,7 @@
           <p><b>Diameter</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${planetObject.diameter}" />
+          <c:out value="${planet.diameter}" />
         </div>
       </div>
     </div>
@@ -63,7 +63,7 @@
           <p><b>Climate</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${planetObject.climate}" />
+          <c:out value="${planet.climate}" />
         </div>
       </div>
     </div>
@@ -74,7 +74,7 @@
           <p><b>Gravity</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${planetObject.gravity}" />
+          <c:out value="${planet.gravity}" />
         </div>
       </div>
     </div>
@@ -85,7 +85,7 @@
           <p><b>Terrain</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${planetObject.terrain}" />
+          <c:out value="${planet.terrain}" />
         </div>
       </div>
     </div>
@@ -96,7 +96,7 @@
           <p><b>Surface water</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${planetObject.surface_water}" />
+          <c:out value="${planet.surface_water}" />
         </div>
       </div>
     </div>
@@ -107,7 +107,7 @@
           <p><b>Population water</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${planetObject.population}" />
+          <c:out value="${planet.population}" />
         </div>
       </div>
     </div>
@@ -118,7 +118,7 @@
           <p><b>Resident</b></p>
         </div>
         <div class="col-sm-9">
-          <c:forEach items="${planetObject.residents}" var="resident">
+          <c:forEach items="${planet.residents}" var="resident">
             <span class='label label-info'/>${resident}</span>
           </c:forEach>
         </div>
@@ -131,7 +131,7 @@
           <p><b>Films</b></p>
         </div>
         <div class="col-sm-9">
-          <c:forEach items="${planetObject.films}" var="film">
+          <c:forEach items="${planet.films}" var="film">
             <span class='label label-info'/>${film}</span>
           </c:forEach>
         </div>
@@ -144,7 +144,7 @@
           <p><b>Created</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${planetObject.created}" />
+          <c:out value="${planet.created}" />
         </div>
       </div>
     </div>
@@ -155,7 +155,7 @@
           <p><b>Edited</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${planetObject.edited}" />
+          <c:out value="${planet.edited}" />
         </div>
       </div>
     </div>
@@ -166,7 +166,7 @@
           <p><b>URL</b></p>
         </div>
         <div class="col-sm-9">
-          <c:out value="${planetObject.url}" />
+          <c:out value="${planet.url}" />
         </div>
       </div>
     </div>

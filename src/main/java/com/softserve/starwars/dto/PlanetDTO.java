@@ -1,14 +1,12 @@
 package com.softserve.starwars.dto;
 
 import java.util.List;
-import java.util.Map;
-
 
 /**
  * Data transfer object class for transferring results of planet's request run
  * @author Viktor Somka
  */
-public class PlanetResultObject {
+public class PlanetDTO {
 
     private String name;
     private String rotation_period;
@@ -25,7 +23,7 @@ public class PlanetResultObject {
     private String edited;
     private String url;
 
-    public PlanetResultObject() {
+    public PlanetDTO() {
     }
 
     public String getName() {

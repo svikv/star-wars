@@ -1,8 +1,9 @@
-package com.softserve.starwars;
+package com.softserve.starwars.controller;
 
-import com.softserve.starwars.Service.ExecuteRequestService;
+import com.softserve.starwars.Service.GenerateRandomUrlService;
+import com.softserve.starwars.Service.ParseAndWriteService;
 import com.softserve.starwars.controller.PlanetsController;
-import com.softserve.starwars.dto.PlanetResultObject;
+import com.softserve.starwars.dto.PlanetDTO;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,11 +27,15 @@ import static org.mockito.internal.verification.VerificationModeFactory.times;
 @RunWith(MockitoJUnitRunner.class)
 public class PlanetsControllerTest {
 
-    private static final int ID = 1;
     private static final int ONCE = 1;
+    private static final int MIN = 1;
+    private static final int MAX = 61;
 
     @Mock
-    private ExecuteRequestService executeRequestService;
+    private ParseAndWriteService parseAndWriteService;
+
+    @Mock
+    private GenerateRandomUrlService generateRandomUrlService;
 
     @InjectMocks
     PlanetsController planetsController;
@@ -71,7 +76,7 @@ public class PlanetsControllerTest {
             return null;
         }
     };
-    PlanetResultObject planetObject = new PlanetResultObject();
+    PlanetDTO planetObject = new PlanetDTO();
 
     @Before
     public void init() {
@@ -79,21 +84,16 @@ public class PlanetsControllerTest {
     }
 
     @Test
-    public void getPeopleAsStringTest() {
-
-        String expected = "redirect:/categories/planets/planet/";
-        String responseBody = "";
-        String url = "";
-
-        when(executeRequestService.executeRequest(url)).thenReturn(responseBody);
-        assertEquals(planetsController.getPlanetAsString(), expected);
-        verify(executeRequestService, times(ONCE)).executeRequest(url);
-    }
-
-    @Test
     public void getPlanetTest() {
 
         String expected = "planets";
-        assertEquals(planetsController.getPlanet(planetObject, ID, model), expected);
+        PlanetDTO planetDTO = new PlanetDTO();
+        String url = "";
+
+        when(generateRandomUrlService.generateRandomUrl(MIN, MAX)).thenReturn(url);
+        when(parseAndWriteService.parseAndWrite(url)).thenReturn(planetDTO);
+        assertEquals(planetsController.getPlanet(model), expected);
+        verify(generateRandomUrlService, times(ONCE)).generateRandomUrl(MIN, MAX);
+        verify(parseAndWriteService, times(ONCE)).parseAndWrite(url);
     }
 }

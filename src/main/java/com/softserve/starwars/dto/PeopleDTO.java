@@ -1,14 +1,13 @@
 package com.softserve.starwars.dto;
 
 import java.util.List;
-import java.util.Map;
 
 
 /**
  * Data transfer object class for transferring results of people request run
  * @author Viktor Somka
  */
-public class PeopleResultObject {
+public class PeopleDTO {
 
     private String name;
     private String height;
@@ -27,7 +26,7 @@ public class PeopleResultObject {
     private String edited;
     private String url;
 
-    public PeopleResultObject() {
+    public PeopleDTO() {
     }
 
     public String getName() {

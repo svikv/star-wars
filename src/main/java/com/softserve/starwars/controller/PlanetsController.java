@@ -1,44 +1,47 @@
 package com.softserve.starwars.controller;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.softserve.starwars.Service.ExecuteRequestService;
-import com.softserve.starwars.dto.PlanetResultObject;
+import com.softserve.starwars.Service.GenerateRandomUrlService;
+import com.softserve.starwars.Service.ParseAndWriteService;
+import com.softserve.starwars.dto.PlanetDTO;
+import org.apache.http.protocol.HTTP;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.Random;
 
 @Controller
+@SessionAttributes("responseBody")
 @RequestMapping(value = "/categories/planets")
 public class PlanetsController {
 
-    private static final String PLANET_OBJECT = "planetObject";
+    private static final String PLANET = "planet";
+    private static final String RESPONSE_BODY = "responseBody";
     private static final String ID = "id";
     final static int MIN = 1;
-    final static int MAX = 100;
+    final static int MAX = 61;
 
     @Autowired
-    private ExecuteRequestService executeRequestService;
+    private ParseAndWriteService parseAndWriteService;
 
-    @RequestMapping(produces = "application/json", method = RequestMethod.GET)
-    public String getPlanetAsString() {
+    @Autowired
+    private GenerateRandomUrlService generateRandomUrlService;
 
-        Random random = new Random();
-        int id  = random.nextInt(MAX-MIN) + MIN;
-        String url = "http://swapi.co/api/planets/"+id;
-        String responseBody = executeRequestService.executeRequest(url);
-        return "redirect:/categories/planets/planet/"+id;
-    }
+    @RequestMapping(method = RequestMethod.GET)
+    public String getPlanet(Model model) {
 
-    @RequestMapping(value = "/planet/{id}", consumes = "application/json", method = RequestMethod.GET)
-    public String getPlanet(@RequestBody PlanetResultObject planetObject, @PathVariable(value = "id") int id, Model model) {
-
-        model.addAttribute(PLANET_OBJECT, planetObject);
-        model.addAttribute(ID, id);
+        String url = generateRandomUrlService.generateRandomUrl(MIN, MAX);
+        PlanetDTO planet = parseAndWriteService.parseAndWrite(url);
+        model.addAttribute(PLANET, planet);
+        model.addAttribute(ID, "id");
         return "planets";
     }
 }

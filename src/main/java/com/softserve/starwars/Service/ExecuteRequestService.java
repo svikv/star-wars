@@ -1,11 +1,11 @@
 package com.softserve.starwars.Service;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.log4j.Logger;
-import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
- * Service responsible for executing request and formation String object
+ * Service responsible for executing request and formation response object
  * @author Viktor Somka
  */
 @Service
@@ -39,19 +39,16 @@ public class ExecuteRequestService {
                 if ((statusCode >= 200) && (statusCode < 400)) {
 
                     HttpEntity entity = response.getEntity();
-                    if (entity != null) {
-                        InputStream inputStream = entity.getContent();
-                        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 
-                        try {
+                    if (entity != null) {
+
+                        InputStream inputStream = entity.getContent();
+                        try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))){
                             while ((line = reader.readLine()) != null) {
                                 responseBody += line;
                             }
                         } catch (IOException e) {
                             LOGGER.error("Can't read response body. " + e.getMessage(), e);
-                        } finally {
-                            reader.close();
-                            inputStream.close();
                         }
                     }
                 }
